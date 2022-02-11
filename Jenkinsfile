@@ -15,6 +15,8 @@ spec:
       privileged: true
       hostNetwork: true
     volumeMounts:
+    - mountPath: '/opt/app/shared'
+      name: sharedvolume
     - mountPath: '/var/run/docker.sock'
       name: dockersock
     allowedCapabilities:
@@ -23,6 +25,9 @@ spec:
     image: '676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.02'
     command: ['cat']
     tty: true
+ volumes:
+  - name: sharedvolume
+    emptyDir: {}
 '''
     }
     }
