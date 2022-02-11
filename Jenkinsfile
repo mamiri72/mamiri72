@@ -3,7 +3,7 @@
 pipeline {
     agent {
         kubernetes {
-          yaml libraryResource('jenkins/agents/mamiri72.yaml')
+          yaml libraryResource('resources/jenkins/agents/mamiri72.yaml')
     }
     }
     stages {
