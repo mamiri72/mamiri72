@@ -34,7 +34,8 @@ spec:
                                 echo "Is there anything"
                                 ls
                                 docker --version
-                                docker build --network=host -t slm-ami:2022.03 .
+                                ls /opt/app/shared
+                                #docker build --network=host -t slm-ami:2022.03 .
                             """
                     }
                 }
