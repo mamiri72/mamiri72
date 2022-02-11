@@ -1,10 +1,10 @@
 //Made commenct
-@Library('mamiri72')
 
 pipeline {
     agent {
         kubernetes {
-          yaml libraryResource('resources/jenkins/agents/mamiri72.yaml')
+          //yaml libraryResource('resources/jenkins/agents/mamiri72.yaml')
+          yamlFile ('resources/jenkins/agents/mamiri72.yaml')
     }
     }
     stages {
