@@ -29,9 +29,9 @@ pipeline {
   				echo "Building now "
                                 docker build --network=host -t slm-ami:2022.05 .
 				echo "will tag"
-    				docker tag slm-ami:2022.05 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami:2022.05
+    				docker tag slm-ami/images:2022.05 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.05
 				echo "will push"
-				docker push 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami:2022.05
+				docker push 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.05
                             """
                     }
                 }
