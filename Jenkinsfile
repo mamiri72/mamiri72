@@ -34,17 +34,7 @@ spec:
                                 echo "Is there anything"
                                 ls
                                 docker --version
-                            """
-                    }
-                }
-                container('slm-ami') {
-                    script {
-                            echo " I can see things "
-                            sh """
-                                cd ${WORKSPACE}
-                                echo "Is there anything"
-                                ls  && ls /
-                                aws s3 ls
+                                docker build --network=host -t slm-ami:2022.03
                             """
                     }
                 }
