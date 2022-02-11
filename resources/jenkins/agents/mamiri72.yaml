@@ -20,3 +20,15 @@ spec:
   - name: dockersock
     hostPath:
       path: /var/run/docker.sock
+  - name: slm-ami 
+    image: "676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.05"
+    command: ["/bin/bash"]
+    tty: true
+    volumeMounts:
+    - mountPath: '/opt/app/shared'
+      name: sharedvolume 
+  volumes:
+  - name: sharedvolume
+    emptyDir: {}
+  - name: dockersock
+    hostPath:
