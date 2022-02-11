@@ -15,7 +15,7 @@ spec:
       privileged: true
       hostNetwork: true
     volumeMounts:
-    - mountPath: '/opt/app/shared'
+    - mountPath: '/tmp'
       name: sharedvolume
     - mountPath: '/var/run/docker.sock'
       name: dockersock
