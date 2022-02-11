@@ -5,25 +5,25 @@ pipeline {
             yaml '''
 apiVersion: v1
 kind: Pod
-spec:
-  containers:
-  - name: docker
-    image: '676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/dockers:2022.02'
-    command: ['cat']
-    tty: true
-    securityContext:
-      privileged: true
+spec: 
+  containers: 
+    image: "676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/dockers:2022.02"
+    name: docker
+    securityContext: 
       hostNetwork: true
-    volumeMounts:
-    - mountPath: '/opt/app/shared'
+      privileged: true
+    tty: true
+    volumeMounts: 
+      - 
+        mountPath: /opt/app/shared
+        name: sharedvolume
+      - 
+        mountPath: /var/run/docker.sock
+        name: dockersock
+  volumes: 
+    - 
+      emptyDir: {}
       name: sharedvolume
-    - mountPath: '/var/run/docker.sock'
-      name: dockersock
-    allowedCapabilities:
-      - NET_ADMIN
- volumes:
- - name: sharedvolume
-    emptyDir: {}
 '''
     }
     }
