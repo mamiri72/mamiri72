@@ -31,7 +31,7 @@ pipeline {
 				echo "will tag"
     				docker tag slm-ami:2022.05 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami:2022.05
 				echo "will push"
-				docker push 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/dockers:2022.05
+				docker push 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami:2022.05
                             """
                     }
                 }
