@@ -12,8 +12,13 @@ spec:
   - name: docker
     image: "676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/dockers:2022.02"
     volumeMounts:
-    - name: dockershare
+    - name: dockersock
       mountPath: /var/run/docker.sock
+      - name: dockersock
+  volumes:
+  - name: dockersock
+    hostPath:
+      path: /var/run/docker.sock
 '''
     }
     }
