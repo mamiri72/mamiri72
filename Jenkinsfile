@@ -1,5 +1,4 @@
-// Uses Declarative syntax to run commands inside a container.
-//@Library('mamiri72@main')
+@Library('mamiri72@main')
 
 pipeline {
     agent {
