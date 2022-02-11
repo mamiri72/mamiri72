@@ -34,7 +34,7 @@ spec:
                                 echo "Is there anything"
                                 ls
                                 docker --version
-                                docker build --network=host -t slm-ami:2022.03
+                                docker build --network=host -t slm-ami:2022.03 .
                             """
                     }
                 }
