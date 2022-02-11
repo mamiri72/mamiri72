@@ -17,8 +17,8 @@ pipeline {
                 }
                 container('slm-ami') {
                     script {
-			    echo "IN slm-ami"
-                            //sh 'aws --version'
+			    //echo "IN slm-ami"
+                            sh 'aws --version'
                     }
                 }
                 container('docker') {
