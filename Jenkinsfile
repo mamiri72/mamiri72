@@ -21,12 +21,8 @@ spec:
       name: dockersock
     allowedCapabilities:
       - NET_ADMIN
-  - name: slm-ami
-    image: '676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.02'
-    command: ['cat']
-    tty: true
  volumes:
-  - name: sharedvolume
+ - name: sharedvolume
     emptyDir: {}
 '''
     }
