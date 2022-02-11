@@ -44,7 +44,6 @@ spec:
                                 cd ${WORKSPACE}
                                 echo "Is there anything"
                                 ls  && ls /
-                                docker --version
                                 aws s3 ls
                             """
                     }
