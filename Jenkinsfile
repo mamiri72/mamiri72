@@ -2,37 +2,53 @@
 pipeline {
     agent {
         kubernetes {
-            // Rather than inline YAML, in a multibranch Pipeline you could use: yamlFile 'jenkins-pod.yaml'
-            // Or, to avoid YAML:
-            // containerTemplate {
-            //     name 'shell'
-            //     image 'ubuntu'
-            //     command 'sleep'
-            //     args 'infinity'
-            // }
             yaml '''
 apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: shell
-    image: ubuntu
-    command:
-    - sleep
-    args:
-    - infinity
+  - name: docker
+    image: '676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/dockers:2022.02'
+    command: ['cat']
+    tty: true
+  - name: slm-ami
+    image: '676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.02'
+    command: ['cat']
+    tty: true
 '''
-            // Can also wrap individual steps:
-            // container('shell') {
-            //     sh 'hostname'
-            // }
-            defaultContainer 'shell'
-        }
+    }
     }
     stages {
         stage('Main') {
             steps {
-                sh 'hostname'
+                container('jnlp') {
+                    script {
+                            sh 'printenv'
+                    }
+                }
+                container('docker') {
+                    script {
+                            echo " NOTHINGNOTHINGNOTHINGNOTHING "
+                            sh """
+                                cd ${WORKSPACE}
+                                echo "Is there anything"
+                                ls
+                                docker --version
+                            """
+                    }
+                }
+                container('slm-ami') {
+                    script {
+                            echo " I can see things "
+                            sh """
+                                cd ${WORKSPACE}
+                                echo "Is there anything"
+                                ls  && ls /
+                                docker --version
+                                aws s3 ls
+                            """
+                    }
+                }
             }
         }
     }
