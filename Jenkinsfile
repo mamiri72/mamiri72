@@ -15,8 +15,6 @@ spec:
       privileged: true
       hostNetwork: true
     volumeMounts:
-    - mountPath: '/tmp'
-      name: sharedvolume
     - mountPath: '/var/run/docker.sock'
       name: dockersock
     allowedCapabilities:
@@ -44,7 +42,6 @@ spec:
                                 echo "Is there anything"
                                 ls
                                 docker --version
-                                ls /opt/app/shared
                                 #docker build --network=host -t slm-ami:2022.03 .
                             """
                     }
