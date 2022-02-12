@@ -12,11 +12,13 @@ pipeline {
             steps {
                 container('jnlp') {
                     script {
+		            echo "JNLP 1"
                             sh 'printenv'
                     }
                 }
-                container('slm-ami') {
+                container('docker') {
                     script {
+		            echo "in Docker 1"
                             sh 'ls / '
                     }
                 }
