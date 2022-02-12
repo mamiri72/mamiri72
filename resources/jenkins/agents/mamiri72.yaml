@@ -23,6 +23,7 @@ spec:
   - name: slm-ami 
     image: "ubuntu"
     command: ["cat"]
+    tty: true
   volumes:
   - name: sharedvolume
     emptyDir: {}
