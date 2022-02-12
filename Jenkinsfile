@@ -22,6 +22,12 @@ pipeline {
           		      sh 'ls /'
 		      }
         	}
+		container('slm-ami') {
+		      script {
+			      echo "In SLM now"
+          		      sh 'ls /'
+		      }
+        	}
                 container('docker') {
                     script {
                             echo " NOTHINGNOTHINGNOTHINGNOTHING "
