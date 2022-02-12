@@ -40,11 +40,11 @@ pipeline {
 				#aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 676894657875.dkr.ecr.us-west-2.amazonaws.com
 				cat zbaba | docker login --username AWS --password-stdin 676894657875.dkr.ecr.us-west-2.amazonaws.com
   				echo "Building now "
-                                docker build --network=host -t slm-ami/images:2022.05 .
+                                docker build --network=host -t slm-ami/images:2022.05.01 .
 				echo "will tag"
-    				docker tag slm-ami/images:2022.05 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.05
+    				docker tag slm-ami/images:2022.05.01 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.05.01
 				echo "will push"
-				docker push 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.05
+				docker push 676894657875.dkr.ecr.us-west-2.amazonaws.com/slm-ami/images:2022.05.01
                             """
                     }
                 }
