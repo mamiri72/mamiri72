@@ -16,7 +16,7 @@ pipeline {
                             sh 'printenv'
                     }
                 }
-		container('docker') {
+		container('busybox') {
 		      script {
 			      echo "Why it works"
           		      sh 'ls /'

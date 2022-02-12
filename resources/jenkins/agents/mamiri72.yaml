@@ -16,10 +16,6 @@ spec:
       name: dockersock
     allowedCapabilities:
       - NET_ADMIN
-  volumes:
-  - name: dockersock
-    hostPath:
-      path: /var/run/docker.sock
   - name: busybox
     image: busybox
     command:
