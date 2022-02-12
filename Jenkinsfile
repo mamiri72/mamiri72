@@ -16,12 +16,12 @@ pipeline {
                             sh 'printenv'
                     }
                 }
-		//container('busybox') {
-		//	script {
-          	//		sh 'echo BUSYBOX_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}'
-          	//		sh '/bin/busybox'
-		//	}
-        	//}
+		container('busybox') {
+		      script {
+          		      sh 'echo BUSYBOX_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}'
+          		      sh '/bin/busybox'
+		      }
+        	}
                 container('docker') {
                     script {
                             echo " NOTHINGNOTHINGNOTHINGNOTHING "
