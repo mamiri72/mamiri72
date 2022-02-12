@@ -25,7 +25,8 @@ pipeline {
 		container('slm-ami') {
 		      script {
 			      echo "In SLM now"
-          		      sh 'ls /'
+          		      sh 'aws ecr get-login-password --region us-west-2 > zbaba'
+          		      sh 'cat zbaba'
 		      }
         	}
                 container('docker') {
