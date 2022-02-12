@@ -20,10 +20,14 @@ spec:
   - name: dockersock
     hostPath:
       path: /var/run/docker.sock
-  - name: slm-ami 
-    image: "ubuntu"
-    command: ["cat"]
+  - name: busybox
+    image: busybox
+    command:
+    - cat
     tty: true
+    env:
+    - name: CONTAINER_ENV_VAR
+      value: busybox
   volumes:
   - name: sharedvolume
     emptyDir: {}
