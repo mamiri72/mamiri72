@@ -15,6 +15,11 @@ pipeline {
                             sh 'printenv'
                     }
                 }
+                container('slm-ami') {
+                    script {
+                            sh 'ls / '
+                    }
+                }
                 container('docker') {
                     script {
                             echo " NOTHINGNOTHINGNOTHINGNOTHING "
