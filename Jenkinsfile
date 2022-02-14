@@ -24,13 +24,13 @@ pipeline {
         	}
 		container('slm-ami') {
 		      script {
-			      echo "In SLM now"
+			      echo "Is the workspace same --> ${WORKSPACE}"
           		      sh 'aws ecr get-login-password --region us-west-2 > zbaba'
 		      }
         	}
                 container('docker') {
                     script {
-                            echo " NOTHINGNOTHINGNOTHINGNOTHING "
+			    echo "Is the workspace same --> ${WORKSPACE}"
                             sh """
                                 cd ${WORKSPACE}
                                 echo "Is there anything"
