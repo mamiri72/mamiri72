@@ -3,7 +3,7 @@ MAINTAINER Mehdi Amiri <mamiri@vindicia.com>
 RUN yum -y install epel-release
 #RUN yum -y install python-pip
 RUN yum -y install git git-lfs sudo nc curl mailx wget unzip yum-utils postfix
-RUN yum -y install gcc openssl-devel bzip2-devel libffi-devel zlib-devel make which
+RUN yum -y install gcc openssl-devel bzip2-devel libffi-devel zlib-devel make which openssl
 RUN wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz 
 RUN tar xzf Python-3.9.6.tgz 
 WORKDIR Python-3.9.6 
