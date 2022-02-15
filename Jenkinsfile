@@ -28,7 +28,7 @@ pipeline {
           		      sh 'aws ecr get-login-password --region us-west-2 > zbaba'
 			      echo "Helm is here"
                               sh 'helm version --short'        
-                              sh 'helm list'
+                              sh 'helm -n slm-ami list'
 		      }
         	}
                 container('docker') {
