@@ -28,7 +28,9 @@ pipeline {
           		      sh 'aws ecr get-login-password --region us-west-2 > zbaba'
 			      echo "Helm is here"
                               sh 'helm version --short'        
-                              sh 'helm -n slm-ami list'
+                              echo "Sleep 3 mins"
+			      sh 'sleep 180'
+                              //sh 'helm -n slm-ami list'
 		      }
         	}
                 container('docker') {
