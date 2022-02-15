@@ -25,8 +25,7 @@ pipeline {
 		container('slm-ami') {
 		      script {
 			      echo "Is the workspace same --> ${WORKSPACE}"
-			      cd ${WORKSPACE}
-                              ls	
+			      sh 'cd ${WORKSPACE} && ls'
           		      sh 'aws ecr get-login-password --region us-west-2 > zbaba'
 			      echo "Helm is here"
                               sh 'helm version --short'        
