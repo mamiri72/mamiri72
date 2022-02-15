@@ -30,6 +30,8 @@ pipeline {
 			      echo "Helm is here"
                               sh 'helm version --short'        
                               sh 'helm -n slm-ami list'
+                              sh 'helm package apache/'
+			      sh 'ls'
 		      }
         	}
                 container('docker') {

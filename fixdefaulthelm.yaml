@@ -1,0 +1,35 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: defaultRole
+  namespace: slm-ami
+  labels:
+    "app.kubernetes.io/name": 'defaultRole'
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["create","delete","get","list","patch","update","watch"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create","delete","get","list","patch","update","watch"]
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get","list","watch"]
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: defaultRole-binding
+  namespace: slm-ami
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: defaultRole
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: slm-ami
+
