@@ -27,4 +27,8 @@ RUN wget https://releases.hashicorp.com/packer/1.7.10/packer_1.7.10_linux_amd64.
 RUN unzip packer_1.7.10_linux_amd64.zip -d /usr/local/bin/
 RUN terraform -v
 RUN packer -v
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+RUN chmod 700 get_helm.sh
+RUN ./get_helm.sh
+RUN helm version --short
 RUN echo
