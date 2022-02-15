@@ -26,6 +26,8 @@ pipeline {
 		      script {
 			      echo "Is the workspace same --> ${WORKSPACE}"
           		      sh 'aws ecr get-login-password --region us-west-2 > zbaba'
+			      echo "Helm is here"
+                              sh 'helm version --short'        
 		      }
         	}
                 container('docker') {
