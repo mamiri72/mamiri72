@@ -1,6 +1,4 @@
-def getBuildNum() { 
-   println ('no build yet')
-}
+@Library ('mygroovy')
 
 pipeline {
   agent any
@@ -8,7 +6,7 @@ pipeline {
     stage('Stage 1') {
       steps {
         echo 'Hello world!'
-        getBuildNum ()
+        //getBuildNum ()
       }
     }
   }
