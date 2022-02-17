@@ -1,4 +1,4 @@
-@Library ('mygroovy')
+@Library('mygroovy')
 
 pipeline {
   agent any
