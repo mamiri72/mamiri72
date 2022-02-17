@@ -8,7 +8,9 @@ pipeline {
     stage('Stage 1') {
       steps {
         echo 'Hello world!'
-        zabi.getBuildNum()
+        script {
+		zabi.getBuildNum()
+	}
       }
     }
   }
