@@ -32,6 +32,7 @@ pipeline {
                               sh 'helm -n slm-ami list'
                               sh 'helm package apache/'
 			      sh 'ls'
+			      sh 'packer version'
 		      }
         	}
                 container('docker') {

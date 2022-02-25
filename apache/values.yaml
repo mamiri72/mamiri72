@@ -401,7 +401,7 @@ autoscaling:
 service:
   ## @param service.type Apache Service type
   ##
-  type: LoadBalancer
+  type: NodePort 
   ## @param service.ports.http Apache service HTTP port
   ## @param service.ports.https Apache service HTTPS port
   ##
@@ -413,8 +413,8 @@ service:
   ## @param service.nodePorts.https Node port for HTTPS
   ##
   nodePorts:
-    http: ""
-    https: ""
+    http: "32262"
+    https: "32263"
   ## @param service.clusterIP Apache service Cluster IP
   ## e.g.:
   ## clusterIP: None
