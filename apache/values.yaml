@@ -91,7 +91,7 @@ git:
   pullSecrets: []
 ## @param replicaCount Number of replicas of the Apache deployment
 ##
-replicaCount: 1
+replicaCount: 10
 ## @param podAffinityPreset Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`
 ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
 ##
@@ -401,6 +401,7 @@ autoscaling:
 service:
   ## @param service.type Apache Service type
   ##
+  #type: LoadBalancer 
   type: NodePort 
   ## @param service.ports.http Apache service HTTP port
   ## @param service.ports.https Apache service HTTPS port
@@ -415,6 +416,8 @@ service:
   nodePorts:
     http: "32262"
     https: "32263"
+      #  http: ""
+      #https: ""
   ## @param service.clusterIP Apache service Cluster IP
   ## e.g.:
   ## clusterIP: None
@@ -613,10 +616,10 @@ metrics:
     ##   memory: 128Mi
     limits: {}
     ## Examples:
-    ## requests:
-    ##   cpu: 100m
-    ##   memory: 128Mi
-    requests: {}
+    requests:
+       cpu: 100m
+       memory: 128Mi
+         #requests: {}
     ## Prometheus exporter service parameters
   ##
   service:
